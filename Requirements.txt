@@ -2,7 +2,6 @@ json
 urllib.request
 requests
 sklearn
-sklearn.metrics
 numpy
 selenium
 bs4
