@@ -1,5 +1,4 @@
 #Importing required libraries
-import voila
 import json
 from urllib.request import urlopen
 import requests
