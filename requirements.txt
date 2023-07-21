@@ -6,5 +6,5 @@ requests
 
 urllib3
 selenium
-math
+
 ipywidgets
