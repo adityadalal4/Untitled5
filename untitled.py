@@ -34,6 +34,7 @@ def plot2(b=None):
         page = requests.get('https://weather.com/en-IN/weather/hourbyhour/l/cc76c08b470b5ddd6e64efd9ce8f256542cfed4ba52f6c00a30a74da519cd070')
     else:
         page = requests.get('https://weather.com/en-IN/weather/hourbyhour/l/cd5287a9b7c6082e70de21891369ada61322a7aa1fc24cca26803dcbd75c78d9')
+    title = st.text_input('Coords')
     soup = BeautifulSoup(page.content, 'html.parser')
     blog=soup.findAll('span',attrs={"class":"Wind--windWrapper--3Ly7c undefined"})
     if True:
@@ -51,10 +52,12 @@ def plot2(b=None):
         y2=[]
         #df = pandas.read_csv("AQI.csv")
         x0 = json.load(urlopen("https://ipinfo.io/"))['loc'].split(',')
-        x1=float(x0[0])
+        #x1=float(x0[0])
+        x1 = float(title.split(',')[0])
+        y=float(title.split(',')[1])
         xmax=x1
         xmin=x1
-        y=float(x0[1])
+        #y=float(x0[1])
         ymax=y
         ymin=y
         #X = df[['Avg1', 'Avg2','Avg3','Avg5']].values
