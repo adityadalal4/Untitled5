@@ -149,8 +149,8 @@ def plot2(b=None):
         #print(address)
         #print('https://pin-code.org.in/companies/viewall/'+str(address['postcode']))
 from ipywidgets import Dropdown
-n1 = st.number_input('Lat',min_value=-180.000000000)
-n2 = st.number_input('Long',min_value=-180.000000000)
+n1 = st.number_input('Lat',min_value=-180.000000000,step =0.0000001)
+n2 = st.number_input('Long',min_value=-180.000000000,step =0.0000001)
 color_buttons = genre = st.radio(
     "What\'s your city",
     ('Jakarta', 'Delhi'))
