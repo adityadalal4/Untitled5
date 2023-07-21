@@ -33,7 +33,7 @@ def plot2(b=None):
         page = requests.get('https://weather.com/en-IN/weather/hourbyhour/l/cd5287a9b7c6082e70de21891369ada61322a7aa1fc24cca26803dcbd75c78d9')
     soup = BeautifulSoup(page.content, 'html.parser')
     blog=soup.findAll('span',attrs={"class":"Wind--windWrapper--3Ly7c undefined"})
-
+    if True:
         for title in blog:
             k=title.text
             k1=k.split(' ')[1]
