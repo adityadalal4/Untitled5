@@ -52,8 +52,8 @@ def plot2(b=None):
         #df = pandas.read_csv("AQI.csv")
         x0 = json.load(urlopen("https://ipinfo.io/"))['loc'].split(',')
         #x1=float(x0[0])
-        x1 = float(title.split(',')[0])
-        y=float(title.split(',')[1])
+        x1 = n1
+        y= n2
         xmax=x1
         xmin=x1
         #y=float(x0[1])
@@ -149,7 +149,8 @@ def plot2(b=None):
         #print(address)
         #print('https://pin-code.org.in/companies/viewall/'+str(address['postcode']))
 from ipywidgets import Dropdown
-title = st.text_input('Coords', '')
+n1 = st.number_input('Lat')
+n2 = st.number_input('Long')
 color_buttons = genre = st.radio(
     "What\'s your city",
     ('Jakarta', 'Delhi'))
