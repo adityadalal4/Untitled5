@@ -2,15 +2,15 @@
 import json
 from urllib.request import urlopen
 import requests
-from sklearn import linear_model
-from sklearn.metrics import r2_score
+#from sklearn import linear_model
+#from sklearn.metrics import r2_score
 import numpy as np
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
 from selenium.webdriver import Chrome
-from selenium.webdriver.chrome.service import Service
-from sklearn.model_selection import train_test_split
+#from selenium.webdriver.chrome.service import Service
+#from sklearn.model_selection import train_test_split
 import math
 import pandas
 from ipywidgets import interact
