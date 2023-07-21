@@ -20,6 +20,9 @@ from IPython.display import *
 out = widgets.Output()
 def plot2(b=None):
     print('Ready')
+    country=2
+    if (color_buttons == "Jakarta"):
+        country=1
     a=[]
     a0=[]
     #count
