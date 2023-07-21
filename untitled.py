@@ -130,21 +130,7 @@ def plot2(b=None):
             if(i>=1):
                 break
             i=i+1
-        AQI=float(k)
-        x=AQI
-        print('AQI:')
-        if x<50:
-            print('Level 1')
-        elif x<101:
-            print('Level 2')
-        elif x<150:
-            print("Level 3")
-        elif x<200:
-            print("Level 4")
-        elif x<300:
-            print("Level 5")
-        else:
-            print("V Bad")
+        
         #print(x[0])
 
         #Printing possible sources from our calculated coordinates and deciding penalty by comparing AQI
@@ -153,7 +139,7 @@ def plot2(b=None):
         #print("%.4f"%y)
         # Latitude & Longitude input
         coordinates = str(x1)+","+str(y)
-        print("Pollutants coming in "+str(color_buttons.value)+" "+str(freq_slider.value))
+        print("Pollutants coming in "+str(color_buttons)+" "+str(freq_slider))
         print("https://www.google.com/maps/search/"+str(coordinates))
         #location = geolocator.reverse(coordinates)
         #address = location.raw['address']
