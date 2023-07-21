@@ -8,6 +8,7 @@ import numpy as np
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
+import streamlit as st
 from selenium.webdriver import Chrome
 #from selenium.webdriver.chrome.service import Service
 #from sklearn.model_selection import train_test_split
@@ -22,7 +23,7 @@ def plot2(b=None):
     a=[]
     a0=[]
     #count
-    if color_buttons.value == "Jakarta":
+    if color_buttons == "Jakarta":
         country = 1
     else:
         country = 2
@@ -132,7 +133,7 @@ def plot2(b=None):
         #print(x1)
         #print(y)
         #number = input("Enter number <10")
-        number = 2
+        number = int(freq_slider)
         for i in range(int(number)):
             x1=x1-(x2[i]*math.cos(y2[i]))*1/54.6
             xmax=xmax-(x2[i]*math.cos(y2[i]+22.5*math.pi/180))*1/54.6
@@ -185,19 +186,23 @@ def plot2(b=None):
         #print(address)
         #print('https://pin-code.org.in/companies/viewall/'+str(address['postcode']))
 from ipywidgets import Dropdown
-color_buttons = Dropdown(options = ['Jakarta','Delhi'],)
-freq_slider = Dropdown(options = [1,2,3,4,5,7,8,9],)
+color_buttons = genre = st.radio(
+    "What\'s your city",
+    ('Jakarta', 'Delhi'))
+freq_slider = st.radio(
+    "What",
+    ('1', '2','3','4','5','6','7','8','9'))
 button = widgets.Button(
     description='Plot',
 )
-#freq_slider = widgets.FloatSlider(value=2,min=1,max=10,step=1,description='Frequency:',readout_format='.0f',)
+#freq_slider = st.FloatSlider(value=2,min=1,max=10,step=1,description='Frequency:',readout_format='.0f',)
 #color_buttons.observe(plot2)
 #freq_slider.observe(plot2)
 from ipywidgets import HBox, VBox
 #VBox([container, g])
-@button.on_click
-def plot(b):
-    plot2()
-print("What is your location? How many hours back do you want to track the wind and pollution?")
-container = HBox([color_buttons, freq_slider, button])
-container
+#@button.on_click
+#def plot(b):
+    #plot2()
+#print("What is your location? How many hours back do you want to track the wind and pollution?")
+#container = HBox([color_buttons, freq_slider, button])
+#container
