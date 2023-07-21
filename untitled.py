@@ -140,7 +140,7 @@ def plot2(b=None):
         # Latitude & Longitude input
         coordinates = str(x1)+","+str(y)
         print("Pollutants coming in "+str(color_buttons)+" "+str(freq_slider))
-        st.write("https://www.google.com/maps/search/"+str(coordinates))
+        st.write(str("https://www.google.com/maps/search/"+str(coordinates)))
         #location = geolocator.reverse(coordinates)
         #address = location.raw['address']
         #print(address)
