@@ -34,7 +34,6 @@ def plot2(b=None):
         page = requests.get('https://weather.com/en-IN/weather/hourbyhour/l/cc76c08b470b5ddd6e64efd9ce8f256542cfed4ba52f6c00a30a74da519cd070')
     else:
         page = requests.get('https://weather.com/en-IN/weather/hourbyhour/l/cd5287a9b7c6082e70de21891369ada61322a7aa1fc24cca26803dcbd75c78d9')
-    title = st.text_input('Coords')
     soup = BeautifulSoup(page.content, 'html.parser')
     blog=soup.findAll('span',attrs={"class":"Wind--windWrapper--3Ly7c undefined"})
     if True:
@@ -110,6 +109,7 @@ def plot2(b=None):
         #print(x1)
         #print(y)
         #number = input("Enter number <10")
+    
         number = int(freq_slider)
         for i in range(int(number)):
             x1=x1-(x2[i]*math.cos(y2[i]))*1/54.6
@@ -149,6 +149,7 @@ def plot2(b=None):
         #print(address)
         #print('https://pin-code.org.in/companies/viewall/'+str(address['postcode']))
 from ipywidgets import Dropdown
+title = st.text_input('Coords', '')
 color_buttons = genre = st.radio(
     "What\'s your city",
     ('Jakarta', 'Delhi'))
