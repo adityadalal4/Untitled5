@@ -192,10 +192,9 @@ color_buttons = genre = st.radio(
 freq_slider = st.radio(
     "What",
     ('1', '2','3','4','5','6','7','8','9'))
-button = widgets.Button(
-    description='Plot',
-)
-#freq_slider = st.FloatSlider(value=2,min=1,max=10,step=1,description='Frequency:',readout_format='.0f',)
+if st.button("Compute"):
+    plot2()
+#_slider = st.FloatSlider(value=2,min=1,max=10,step=1,description='Frequency:',readout_format='.0f',)
 #color_buttons.observe(plot2)
 #freq_slider.observe(plot2)
 from ipywidgets import HBox, VBox
