@@ -23,56 +23,27 @@ def plot2(b=None):
     a=[]
     a0=[]
     #count
-    if color_buttons == "Jakarta":
-        country = 1
-    else:
-        country = 2
-    if True:
-        print('Wait till result is shown!')
-        a=[]
-        a0=[]
+    print('Wait till result is shown!')
+    a=[]
+    a0=[]
         #country = input("1 for Jakarta, 2 for Delhi")
-        if country == 1:
-            page = requests.get('https://weather.com/en-IN/weather/hourbyhour/l/cc76c08b470b5ddd6e64efd9ce8f256542cfed4ba52f6c00a30a74da519cd070')
-        else:
-            page = requests.get('https://weather.com/en-IN/weather/hourbyhour/l/cd5287a9b7c6082e70de21891369ada61322a7aa1fc24cca26803dcbd75c78d9')
-        soup = BeautifulSoup(page.content, 'html.parser')
-        blog=soup.findAll('span',attrs={"class":"Wind--windWrapper--3Ly7c undefined"})
+    if country == 1:
+        page = requests.get('https://weather.com/en-IN/weather/hourbyhour/l/cc76c08b470b5ddd6e64efd9ce8f256542cfed4ba52f6c00a30a74da519cd070')
+    else:
+        page = requests.get('https://weather.com/en-IN/weather/hourbyhour/l/cd5287a9b7c6082e70de21891369ada61322a7aa1fc24cca26803dcbd75c78d9')
+    soup = BeautifulSoup(page.content, 'html.parser')
+    blog=soup.findAll('span',attrs={"class":"Wind--windWrapper--3Ly7c undefined"})
+
         for title in blog:
             k=title.text
+            k1=k.split(' ')[1]
+            #print(k1)
             a.append(k.split(' ')[0])
-            a0.append(float(k.split(' ')[1]))
-        if country == 1:
-            page = requests.get('https://weather.com/en-IN/weather/today/l/cc76c08b470b5ddd6e64efd9ce8f256542cfed4ba52f6c00a30a74da519cd070')
-        else:
-            page = requests.get('https://weather.com/en-IN/weather/today/l/cd5287a9b7c6082e70de21891369ada61322a7aa1fc24cca26803dcbd75c78d9')
-        soup = BeautifulSoup(page.content, 'html.parser')
-        blog=soup.findAll('span',attrs={"data-testid":"PercentageValue"})
-        for title in blog:
-            k=title.text
-        avg3=float(k.replace("%",""))   
-        blog=soup.findAll('span',attrs={"data-testid":"TemperatureValue"})
-        i=0
-        for title in blog:
-            k=title.text
-            if(i>=10):
-                break
-            i=i+1
-        avg2=float(k.replace("°",""))
-        blog=soup.findAll('span',attrs={"data-testid":"TemperatureValue"})
-        i=0
-        avg1=0
-        for title in blog:
-            k=title.text
-            if(i==1 or i==2):
-                avg1=avg1+float(k.replace("°",""))
-            i=i+1
-        avg1=avg1/2
-        blog=soup.findAll('span',attrs={"data-testid":"PressureValue"})
-        i=0
-        for title in blog:
-            k=title.text
-        avg5=float(k.replace(" mb","").replace("Arrow Up","").replace("Arrow Down",""))
+            if(k1[1]!='1' and k1[1]!='2' and k1[1]!='3' and k1[1]!='4' and k1[1]!='5' and k1[1]!='6'and k1[1]!='7' and k1[1]!='8'and k1[1]!='9' and k1[1]!='0'):
+                a0.append(float(k1[0]))
+                print(a0)
+            else:
+                a0.append(float(k1[0])*10+float(k1[1]))
         x2=a0
         y2=[]
         #df = pandas.read_csv("AQI.csv")
