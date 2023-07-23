@@ -143,7 +143,7 @@ def plot2(b=None):
         # Latitude & Longitude input
         coordinates = str(x1)+","+str(y)
         print("Pollutants coming in "+str(color_buttons)+" "+str(freq_slider))
-        st.write(str("https://www.google.com/maps/search/"+str(coordinates)))
+        st.write("Pollutants will come from:" + str("https://www.google.com/maps/search/"+str(coordinates)))
         #location = geolocator.reverse(coordinates)
         #address = location.raw['address']
         #print(address)
@@ -154,6 +154,7 @@ n2 = st.number_input('Long',min_value=-180.000000000,step =0.0000001)
 color_buttons = genre = st.radio(
     "What\'s your city",
     ('Jakarta', 'Delhi'))
+st.write("For what time +?")
 freq_slider = st.radio(
     "What",
     ('1', '2','3','4','5','6','7','8','9'))
